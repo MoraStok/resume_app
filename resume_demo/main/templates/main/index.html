@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}Mora Stok{% endblock %}
 {% block decription %}{% endblock %}
 {% block keywords %}{% endblock %}
 
@@ -46,7 +46,7 @@
       <div class="row">
         <div class="col-md-auto">
           <div class="keySkillCol">
-            <h4 class="smTitle pb-3">Key Skills</h4>
+            <h4 class="smTitle pb-3">Soft Skills</h4>
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
             <div class="keySkillCard">
@@ -66,7 +66,7 @@
           <div class="progressCol">
             <div class="progressCard">
               {% for sk in me.userprofile.skills.all %}
-              {% if sk.is_key_skill %}
+              {% if not sk.is_key_skill %}
               <div class="progressCol">
                 <span class="progressLbl">{{sk.name}}</span>
                 <div class="row g-2 align-items-center">
