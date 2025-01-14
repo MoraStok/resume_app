@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from . unique_slugify_snippet import unique_slugify
 
 class Skill(models.Model):
     class Meta:
@@ -11,6 +12,16 @@ class Skill(models.Model):
     score = models.IntegerField(default=80, blank=True, null=True)
     image = models.FileField(blank=True, null=True, upload_to="skills")
     is_key_skill = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.name
+    
+class Tags(models.Model):
+    class Meta:
+        verbose_name_plural = 'Tags'
+        verbose_name = 'Tag'
+    
+    name = models.CharField(max_length=20, blank=True, null=True)
     
     def __str__(self):
         return self.name
@@ -75,19 +86,19 @@ class Certificate(models.Model):
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=50, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
-    description = models.CharField(max_length=500, blank=True, null=True)
+    tags = models.ManyToManyField(Tags, blank=True)
     image = models.ImageField(blank=True, null=True, upload_to="certificate")
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            unique_slugify(self, self.name)
         super(Certificate, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
     
     def get_absolute_url(self):
-        if self.slug:
+        if self.slug is not None:
             return f"/certificate/{self.slug}"

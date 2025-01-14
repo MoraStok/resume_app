@@ -4,7 +4,8 @@ from . models import (
     ContactProfile,
     Media,
     Certificate,
-    Skill
+    Skill,
+    Tags
     )
 
 
@@ -27,3 +28,7 @@ class CertificateAdmin(admin.ModelAdmin):
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('id','name','score')
+
+@admin.register(Tags)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('id','name')

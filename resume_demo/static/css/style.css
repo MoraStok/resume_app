@@ -484,23 +484,23 @@ body.navToggleActive {
 }
 
 
-/* portfolio page */
+/* certificate page */
 .innerPageBannerCol {
 	padding: 180px 0 150px;
 }
-.portfolioContentMain {
+.certificateContentMain {
   position: relative;
   z-index: 1;
   padding: 50px 0 ;
 }
-.pCol {
+.cCol {
   height: 100%;
 }
 .pImg {
   width: 100%;
 }
 
-.portfolioRow .pColMain:nth-child(2n-1) .pCol {
+.certificateRow .cColMain:nth-child(2n-1) .cCol {
   margin-top: -110px;
 }
 @media (min-width:576px) {
@@ -600,10 +600,10 @@ body.navToggleActive {
   .innerPageBannerCol{
   	padding: 120px 0 50px;
   }
-  .portfolioRow .pColMain:nth-child(2n-1) .pCol {
+  .certificateRow .cColMain:nth-child(2n-1) .cCol {
   	margin-top: -70px;
   }
-  .portfolioContentMain {
+  .certificateContentMain {
   	padding: 30px 0;
   }
 }
@@ -691,7 +691,7 @@ body.navToggleActive {
   	padding: 50px 0;
   }
 
-  .portfolioRow .pColMain:nth-child(2n-1) .pCol {
+  .certificateRow .cColMain:nth-child(2n-1) .cCol {
   	margin-top: 0;
   }
   .innerPageBannerCol {
