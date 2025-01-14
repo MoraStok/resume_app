@@ -108,7 +108,7 @@
             <div class="swiper-slide">
               <div class="cardStyle1">
                 <h4 class="mdTitle cs1Title">
-                  <a href="javascript:void(0)">{{c.title}}</a>
+                  <a href="javascript:void(0)" onClick="window.open('{% url 'main:certificate' c.slug %}', '_blank');">{{c.title}}</a>
                 </h4>
                 <ul class="cardOptionCol">
                   <li>{{c.date.date}}</li>

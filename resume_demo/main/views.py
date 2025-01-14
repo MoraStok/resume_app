@@ -28,3 +28,15 @@ class ContactView(generic.FormView):
 		form.save()
 		messages.success(self.request, 'Thank you. We will be in touch soon.')
 		return super().form_valid(form)
+	
+class CertificateView(generic.ListView):
+	model = Certificate
+	template_name = "main/certificates.html"
+	paginate_by = 10
+
+	def get_queryset(self):
+		return super().get_queryset().filter(is_active=True)
+	
+class CertificateDetailView(generic.DetailView):
+	model = Certificate
+	template_name = "main/certificate_detail.html"
