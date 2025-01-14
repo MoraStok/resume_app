@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}certificate{% endblock %}
+{% block title %}{{object.name}} Certiticate{% endblock %}
 {% block decription %}{% endblock %}
 {% block keywords %}{% endblock %}
 
@@ -11,6 +11,23 @@
 
 {% block content %}
 <section>
-    <img src="{{obj.image.url}}" alt="..." class="cImg">
+    <div class="innerPageBannerCol">
+        <div class="container">
+          <div class="row g-4 g-md-3  align-items-center">
+            <div class="col-md-6">
+              <div class="bannerContent">
+                <h1 class="xlTitle pb-md-3">{{object.title}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+<section>
+    <div class="sectionSpaceSm">
+        <div class="container">
+            <img src="{{object.image.url}}" alt="..." class="cImg">
+        </div>
+    </div>
 </section>
 {%endblock%}
