@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]", "moritaiam.com", "www.moritaiam.com"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -72,6 +71,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'resume_demo.wsgi.application'
 
+CORS_ALLOWED_ORIGINS = ["http://moritaiam.com","http://www.moritaiam.com"]
+
+CSRF_TRUSTED_ORIGINS = ["http://moritaiam.com","http://www.moritaiam.com"]
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
